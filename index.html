@@ -7,61 +7,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <style>
-:root{--primary:#1D4ED8;--soft:#eff4ff;--ink:#1f2937;--mute:#6b7280;--line:#e5e7eb;--r:14px}
+:root{--primary:#1D4ED8;--soft:color-mix(in srgb,var(--primary) 8%,#fff);--ink:#111827;--mute:#6b7280;--line:#e5e7eb;--r:10px}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#f3f4f6;color:var(--ink);line-height:1.5}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#f3f4f6;color:var(--ink);line-height:1.55}
 .wrap{max-width:500px;margin:0 auto;background:#fff;min-height:100vh;padding-bottom:84px}
-.sw{aspect-ratio:1;background:#fafafa}.sw img{width:100%;height:100%;object-fit:contain}
-.swiper-pagination-bullet-active{background:var(--primary)}
-.flash{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;color:#fff;background:linear-gradient(90deg,var(--primary),color-mix(in srgb,var(--primary) 65%,#000))}
-.flash b{font-size:16px;font-style:italic;font-weight:800}.flash small{display:block;font-size:10px;font-weight:600;opacity:.9}
-.timer{background:rgba(0,0,0,.3);border-radius:6px;padding:4px 9px;font:700 13px ui-monospace,monospace;letter-spacing:.05em}
-.sec{padding:16px;border-bottom:8px solid #f3f4f6}
-.h{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px}
-.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.price strong{font-size:28px;font-weight:800;color:var(--primary);line-height:1.1}
-.chip{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#dcfce7;color:#166534}
-h1{font-size:17px;font-weight:700;margin:8px 0 6px;line-height:1.35}
-.meta{font-size:12px;color:var(--mute);display:flex;gap:8px;flex-wrap:wrap}.meta i{color:#f59e0b;font-style:normal}
-.shop{display:flex;align-items:center;gap:12px}
-.logo{width:44px;height:44px;border-radius:50%;background:var(--soft);color:var(--primary);font-weight:800;display:grid;place-items:center}
-.shop b{font-size:14px}.shop small{display:block;font-size:11px;color:var(--mute)}.shop small:before{content:"\25CF ";color:#22c55e;font-size:8px}
-.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.vc{border:1.5px solid var(--line);border-radius:var(--r);padding:8px;position:relative;background:#fff;cursor:pointer;text-align:left;font:inherit;color:inherit}
-.vc img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}
-.vc.on{border-color:var(--primary);background:var(--soft)}
-.tick{display:none;position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;background:var(--primary);color:#fff;font-size:12px;place-items:center}
-.vc.on .tick{display:grid}
-.vn{font-size:13px;font-weight:700;margin-top:8px}.vp{font-size:15px;font-weight:800;color:var(--primary)}.vs{font-size:11px;color:var(--mute)}
-.trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.trust span{font-size:11px;font-weight:600;background:#f3f4f6;border-radius:8px;padding:5px 9px}
-.ship{display:flex;align-items:center;gap:12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r);padding:12px 14px;cursor:pointer;margin:0 16px 16px}
-.ship b{font-size:13px;color:#166534;display:block}.ship small{font-size:11px;color:#4b7c5c}
-.ship i{font-style:normal;font-size:20px}
-.feat{margin-bottom:22px}.feat img{width:100%;display:block;border-radius:var(--r)}
-.feat b{display:block;font-size:15px;margin:10px 0 4px}.feat p{font-size:13px;color:#4b5563}
-details{border-bottom:1px solid var(--line)}
-summary{list-style:none;cursor:pointer;padding:14px 0;font-size:13px;font-weight:800;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.ann{background:var(--ink);color:#fff;text-align:center;font-size:12px;font-weight:600;padding:9px 12px;letter-spacing:.02em}
+.gal{position:relative;background:#f6f6f6}.sw{aspect-ratio:1}.sw img{width:100%;height:100%;object-fit:contain}
+.cnt{position:absolute;right:12px;bottom:12px;z-index:5;background:rgba(17,24,39,.72);color:#fff;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px}
+.th{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}.th::-webkit-scrollbar{display:none}
+.th button{flex:0 0 56px;height:56px;border:1.5px solid transparent;border-radius:8px;overflow:hidden;padding:0;background:#f3f4f6;cursor:pointer}
+.th button.on{border-color:var(--ink)}.th img{width:100%;height:100%;object-fit:cover;display:block}
+.pi{padding:14px 16px 8px}
+.brand{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--mute)}
+h1{font-size:24px;font-weight:800;line-height:1.25;margin:4px 0 2px}
+.sub{font-size:14px;color:var(--mute)}
+.meta{font-size:12px;color:var(--mute);margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}.meta i{color:#f59e0b;font-style:normal}
+.price{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.price strong{font-size:26px;font-weight:800;letter-spacing:-.01em}
+.chip{font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;background:#dcfce7;color:#166534}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:20px 0 10px}.lbl span{color:var(--mute);font-weight:500;text-transform:none;letter-spacing:0}
+.vlist{display:grid;gap:8px}
+.vc{display:flex;align-items:center;gap:12px;width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff;cursor:pointer;text-align:left;font:inherit;color:inherit;position:relative}
+.vc img{width:56px;height:56px;border-radius:8px;object-fit:cover;flex:none;display:block}
+.vc .t{flex:1;min-width:0}.vn{font-size:14px;font-weight:700}.vs{font-size:12px;color:var(--mute)}.vp{font-size:15px;font-weight:800}
+.vc:after{content:"";position:absolute;top:10px;right:10px;width:16px;height:16px;border:1.5px solid #cbd5e1;border-radius:50%;display:none}
+.vc.on{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.vc.on .vp{color:var(--primary)}
+.save{font-size:11px;font-weight:700;background:#dcfce7;color:#166534;border-radius:999px;padding:1px 8px;margin-left:6px}
+.btn{display:block;width:100%;margin-top:16px;padding:15px;border:0;border-radius:var(--r);background:var(--primary);color:#fff;font:800 15px 'Plus Jakarta Sans',sans-serif;cursor:pointer;letter-spacing:.02em}
+.trust{margin:16px 0 4px;display:grid;gap:10px}
+.trust div{display:flex;gap:10px;align-items:center;font-size:13px}
+.trust b{width:22px;height:22px;border-radius:50%;background:var(--soft);color:var(--primary);display:grid;place-items:center;font-size:12px;flex:none}
+.ship{margin:14px 16px 0;padding:12px 14px;border:1px solid #bbf7d0;background:#f0fdf4;border-radius:var(--r);cursor:pointer}
+.ship b{display:block;font-size:13px;color:#166534}.ship small{font-size:12px;color:#4b7c5c}
+.sec{padding:24px 16px 0}
+.st{font-size:18px;font-weight:800;margin-bottom:14px}
+details{border-top:1px solid var(--line)}details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:16px 0;font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
 summary::-webkit-details-marker{display:none}
-summary:after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;transition:transform .2s}
-details[open] summary:after{transform:rotate(-135deg);margin-top:4px}
-details p{padding:0 0 14px;font-size:13px;color:#4b5563;white-space:pre-line}
-.rv{padding:12px 0;border-bottom:1px solid var(--line)}.rv:last-child{border:0}
-.rv .st{color:#f59e0b;font-size:12px}.rv small{color:var(--mute);font-size:11px;margin-left:6px}
-.rv p{font-size:13px;margin-top:4px;color:#374151}.rv img{width:72px;height:72px;object-fit:cover;border-radius:8px;margin-top:8px}
-#order{padding:22px 16px;background:#fff}
-.ot{text-align:center;font-size:15px;font-weight:800;color:var(--primary);text-transform:uppercase;margin-bottom:14px}
+summary:after{content:"+";font-size:20px;font-weight:400;color:var(--mute)}
+details[open] summary:after{content:"\2212"}
+details .c{padding:0 0 16px;font-size:14px;color:#4b5563}
+.c ul{padding-left:18px}.c li{margin-bottom:4px}
+.c table{width:100%;border-collapse:collapse}.c td{padding:9px 0;border-bottom:1px solid #f1f5f9;font-size:14px}.c td:first-child{color:var(--mute);width:42%}.c tr:last-child td{border:0}
+.feat{margin-bottom:26px}.feat img{width:100%;display:block;border-radius:12px;background:#f3f4f6}
+.feat b{display:block;font-size:16px;margin:12px 0 4px}.feat p{font-size:14px;color:#4b5563}
+.rv{padding:14px 0;border-top:1px solid var(--line)}.rv .s{color:#f59e0b;font-size:13px}.rv b{font-size:13px;margin-left:6px}.rv small{color:var(--mute);margin-left:6px;font-size:11px}
+.rv p{font-size:14px;margin-top:4px;color:#374151}.rv img{width:72px;height:72px;object-fit:cover;border-radius:8px;margin-top:8px}
+#order{margin:28px 16px 0;padding:20px 16px;border:1px solid var(--line);border-radius:14px}
+.ot{font-size:18px;font-weight:800;margin-bottom:12px}
 .sum{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:var(--r);background:#fafafa;margin-bottom:12px}
-.sum img{width:46px;height:46px;border-radius:8px;object-fit:cover}.sum b{font-size:13px;display:block}.sum small{font-size:11px;color:var(--mute)}
+.sum img{width:46px;height:46px;border-radius:8px;object-fit:cover}.sum b{font-size:13px;display:block}.sum small{font-size:12px;color:var(--mute)}
+footer{text-align:center;font-size:11px;color:var(--mute);padding:26px 16px 8px}
 .bar{position:fixed;left:50%;bottom:0;width:100%;max-width:500px;transform:translate(-50%,110%);transition:transform .25s;background:#fff;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:50}
-.bar.show{transform:translate(-50%,0)}
-.bar small{font-size:11px;color:var(--mute);display:block}.bar b{font-size:16px}
-.bar button{background:var(--primary);color:#fff;border:0;border-radius:var(--r);padding:13px 24px;font:800 14px inherit;font-family:inherit;cursor:pointer}
-
+.bar.show{transform:translate(-50%,0)}.bar small{font-size:11px;color:var(--mute);display:block}.bar b{font-size:16px}
+.bar button{background:var(--primary);color:#fff;border:0;border-radius:var(--r);padding:13px 26px;font:800 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer}
 .bad{color:transparent;font-size:0;background:#f3f4f6}.feat img.bad{display:none}
-/* ===== Gaya form OrderOnline (hanya tampilan; ikut warna --primary) ===== */
+
+/* ===== Gaya form OrderOnline (tampilan saja; warna ikut --primary) ===== */
 .ooef{--a:var(--primary);--as:var(--soft)}
-.ooef form.orderonline-embed-form{max-width:480px;margin:0 auto;font-family:inherit;position:relative}
+.ooef form.orderonline-embed-form{font-family:inherit;position:relative}
 .ooef form .section-title{margin:18px 0 10px;font-size:15px;font-weight:700}
 .ooef form .ooef-variations-table-wrapper:before{content:"Pilihan produk";display:block;margin-bottom:10px;font-size:15px;font-weight:700}
 .ooef form .ooef-variations-table-warning{margin-bottom:10px;font-size:13px;color:#b91c1c}
@@ -72,7 +77,7 @@ details p{padding:0 0 14px;font-size:13px;color:#4b5563;white-space:pre-line}
 .ooef form .oo-variation-label{font-size:15px;font-weight:600}
 .ooef form .input-number-controls{display:flex;align-items:center;flex-wrap:nowrap;gap:6px}
 .ooef form .input-number-controls .input-group-prepend,.ooef form .input-number-controls .input-group-append{display:flex;margin:0}
-.ooef form .input-number-controls .btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);font-size:18px;line-height:1}
+.ooef form .input-number-controls .btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;margin:0;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);font-size:18px;line-height:1}
 .ooef form .input-number-controls .qty-plus{border-color:var(--a);background:var(--a);color:#fff}
 .ooef form .input-number-controls input.form-control{width:44px;height:36px;padding:0;border:0;background:transparent;box-shadow:none;text-align:center;font-size:16px;font-weight:700;-moz-appearance:textfield}
 .ooef form .input-number-controls input::-webkit-outer-spin-button,.ooef form .input-number-controls input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
@@ -94,67 +99,65 @@ details p{padding:0 0 14px;font-size:13px;color:#4b5563;white-space:pre-line}
 .ooef form .order-summary-header{margin-bottom:8px;font-size:13px;font-weight:700;color:var(--mute);text-decoration:none}
 .ooef form .order-summary-item{justify-content:space-between;padding:4px 0;font-size:14px}
 .ooef form .order-summary-item-total{margin-top:6px;padding-top:10px;border-top:1px dashed var(--line);font-size:16px;font-weight:700;color:var(--a)}
-.ooef form .checkout-actions .btn-complete-order{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;border:0;border-radius:var(--r);background:var(--a)!important;color:#fff!important;font-size:16px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.ooef form .checkout-actions .btn-complete-order{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;border:0;border-radius:var(--r);background:var(--a)!important;color:#fff!important;font-size:16px;font-weight:700}
 .ooef form .checkout-actions .btn-complete-order svg{width:20px;height:20px}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="ann" id="ann"></div>
 
-  <div class="swiper sw" id="gal"><div class="swiper-wrapper" id="galw"></div><div class="swiper-pagination"></div></div>
+  <div class="gal"><div class="swiper sw" id="gal"><div class="swiper-wrapper" id="galw"></div></div><span class="cnt" id="cnt">1 / 1</span></div>
+  <div class="th" id="th"></div>
 
-  <div class="flash" id="flash">
-    <div><b>FLASH SALE!</b><small>PROMO SPESIAL HARI INI</small></div>
-    <div style="text-align:right"><small>BERAKHIR DALAM</small><div class="timer" id="timer">00 : 00 : 00</div></div>
-  </div>
-
-  <div class="sec">
-    <div class="price"><strong id="price">Rp 0</strong><span class="chip" id="save" style="display:none"></span></div>
+  <div class="pi">
+    <div class="brand">FIXEDFORM</div>
     <h1>Kneepad FixedForm</h1>
+    <div class="sub">Pelindung lutut dengan tali Quad-Strap, anti-geser</div>
     <div class="meta" id="meta"></div>
+    <div class="price"><strong id="price">Rp 0</strong><span class="chip" id="save" style="display:none"></span></div>
+
+    <div class="lbl">Paket: <span id="vname"></span></div>
+    <div class="vlist" id="vlist"></div>
+    <button class="btn" id="cta">Pesan sekarang</button>
+
+    <div class="trust">
+      <div><b>&#10003;</b>Garansi 100% original</div>
+      <div><b>&#10003;</b>Stok tersedia</div>
+      <div><b>&#10003;</b>Tali Quad-Strap, anti-geser</div>
+    </div>
   </div>
 
-  <div class="sec"><div class="shop"><div class="logo">F</div><div><b>FIXEDFORM</b><small>Aktif</small></div></div></div>
+  <div class="ship" id="ship"><b id="shipdate">Garansi tiba: ...</b><small>Dapatkan voucher s/d Rp10.000 jika pesanan terlambat.</small></div>
 
   <div class="sec">
-    <div class="h">Pilih paket: <span id="vname" style="color:var(--primary)"></span></div>
-    <div class="vgrid" id="vgrid"></div>
-    <div class="trust"><span>Garansi 100% Original</span><span>Stok tersedia</span><span>Anti-geser</span></div>
+    <details open><summary>Deskripsi</summary><div class="c">
+      <p style="margin-bottom:10px">Kneepad dengan sistem tali Quad-Strap yang menjaga pad tetap di tempat saat Anda bergerak. Bahannya bernapas dan anti-slip, nyaman dipakai untuk aktivitas harian.</p>
+      <ul><li>Melindungi lutut dari benturan dan gesekan</li><li>Desain anti-geser, tetap stabil di posisinya</li><li>Bebas bergerak tanpa pad bergeser</li></ul>
+    </div></details>
+    <details><summary>Panduan ukuran</summary><div class="c"><table><tr><td>Panjang</td><td>50 cm</td></tr><tr><td>Tinggi</td><td>21 cm</td></tr></table></div></details>
+    <details><summary>Spesifikasi</summary><div class="c"><table><tr><td>Bahan</td><td>Premium Quality</td></tr><tr><td>Sistem tali</td><td>Quad-Strap</td></tr><tr><td>Stok</td><td>Tersedia</td></tr><tr><td>Garansi</td><td>100% original</td></tr></table></div></details>
   </div>
 
-  <div class="ship" id="ship"><i>&#128666;</i><div><b id="shipdate">Garansi Tiba: ...</b><small>Dapatkan Voucher s/d Rp10.000 jika pesanan terlambat.</small></div></div>
+  <div class="sec"><div class="st">Kenapa FixedForm</div><div id="feats"></div></div>
 
-  <div class="sec" style="padding-top:4px">
-    <div class="h" style="margin-top:12px">Fitur unggulan</div>
-    <div id="feats"></div>
-  </div>
-
-  <div class="sec" style="padding-top:2px">
-    <details open><summary>Deskripsi produk</summary><p>&bull; Lindungi lutut optimal dari benturan dan gesekan berat.
-&bull; Desain anti-geser, tetap stabil di posisi terbaiknya.
-&bull; Bebas bergerak, fokus penuh tanpa khawatir pad bergeser.</p></details>
-    <details><summary>Panduan ukuran</summary><p>Panjang 50 cm, tinggi 21 cm</p></details>
-    <details><summary>Spesifikasi teknis</summary><p>Bahan: Premium Quality
-Stok: Tersedia
-Garansi: 100% Original</p></details>
-  </div>
-
-  <!-- ULASAN: tampil otomatis kalau array REVIEWS di bawah diisi (ulasan pembeli ASLI). -->
-  <div class="sec" id="rvsec" style="display:none"><div class="h">Penilaian produk</div><div id="rvlist"></div></div>
+  <!-- ULASAN: tampil otomatis kalau REVIEWS di bawah diisi dengan ulasan pembeli ASLI -->
+  <div class="sec" id="rvsec" style="display:none"><div class="st">Ulasan pembeli</div><div id="rvlist"></div></div>
 
   <div id="order">
+    <div class="ot">Formulir pemesanan</div>
     <div id="sum"></div>
-    <div class="ot">Formulir Pemesanan</div>
     <!-- OrderOnline Embed Code - v8.0.2 --> <div class="ooef"> <form class="orderonline-embed-form" data-username="mila" data-product-slug="kneepad-fixedform" data-product-id="6ad090d9fb37c83cc90e8ddc" id="oo-embed-form-kneepad-fixedform-8211" data-origin="orderonline"> <div class="ooef-loader"><style>.ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}@keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}@-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}.ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}.ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}.ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}@-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}@keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}</style><div aria-live="polite" role="status"><div>Loading...</div></div></div> </form> </div> <script> if (typeof xLogError != 'function') { var xLogError = function (error) { var req = new XMLHttpRequest(); var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack }); var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error'; req.open('POST', 'https://api.orderonline.id/log', true); req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); req.send(params); }; } try { if (typeof xEmbedScript != 'function') { var xEmbedScript = function () { !function(w, d, e, v, id, t, s) { if (d.getElementById(id)) return; t = d.createElement(e);t.async = !0;t.src = v;t.id = id; s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.2', 'oo-embed-js'); }; } if (typeof xEmbedInit != 'function') { var xEmbedInit = function (w, n) { if (w.ooe) return; n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!w._ooe) w._ooe = n; n.push = n;n.loaded = !0;n.version = '8.0.2';n.queue = []; }; } xEmbedInit(window); ooe('setup', 'redirect', 'https://mila.orderonline.id'); ooe('init', '5f1a7b8fa9bf807da24d83bb', '6ad090d9fb37c83cc90e8ddc', '6ad090d9fb37c83cc90e8ddd', 'oo-embed-form-kneepad-fixedform-8211', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":true}); if (!window.jQuery) { !function(w, d, e, v, id, t, s) { if (d.getElementById(id)) return; t = d.createElement(e);t.async = !0;t.src = v;t.id = id; t.addEventListener('load', xEmbedScript); s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery'); } else { xEmbedScript(); } } catch (e) { xLogError(e); throw e; } </script> <!-- End OrderOnline Embed Code -->
   </div>
+  <footer>&copy; FIXEDFORM</footer>
 </div>
 
 <div class="bar" id="bar"><div><small id="barname"></small><b id="barprice"></b></div><button id="barbtn">Pesan sekarang</button></div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-/* ===== PENGATURAN & DATA ===== */
-const CFG = { flashSale: true, hours: 1, stickyBar: true, rating: '4.9', penilaian: '1.2RB', terjual: '2.5RB+' };
+/* ===== PENGATURAN & DATA (harga ada di VARIANTS) ===== */
+const CFG = { announce: 'Promo spesial: Beli 1 Gratis 1', timer: false, hours: 1, stickyBar: true, showStats: true, rating: '4.9', penilaian: '1.2RB', terjual: '2.5RB+' };
 const U = 'https://tryfixedform.com/cdn/shop/files/';
 const GALLERY = [
   U+'nh_ChatGPT_03_44_13_28_thg_9_2026.png?v=1790592457&width=823',
@@ -169,35 +172,38 @@ const GALLERY = [
 const BUNDLE_IMG = 'https://cdn.shopify.com/s/files/1/0659/2112/2511/files/Kaching-Bundles-Kaching-Bundles-Kaching-Bundles-ChatGPT_Image_Oct_21_2025_05_25_20_PM_300x300_59247e15-7fbb-458d-8c6e-8b8759a5dd5e_300x300.webp?v=1790318730';
 /* name harus sama dengan nama pilihan di OrderOnline (huruf besar/kecil & tanda baca diabaikan) */
 const VARIANTS = [
-  { name: 'Single', price: 186000, pcs: 1, img: GALLERY[0] },
-  { name: 'Buy 1 get 1 free!', price: 220000, pcs: 2, img: BUNDLE_IMG }
+  { name: 'Single', price: 186000, pcs: 1, img: GALLERY[0].replace('width=823', 'width=160'), big: GALLERY[0] },
+  { name: 'Buy 1 get 1 free!', price: 220000, pcs: 2, img: BUNDLE_IMG, big: BUNDLE_IMG }
 ];
 const FEATURES = [
-  [GALLERY[6], 'Dukungan Spesifik Menyeluruh', 'Dirancang presisi dengan sistem tali Quad-Strap, memberikan stabilitas instan, meredakan nyeri, dan mendorong pemulihan alami lutut Anda.'],
-  [GALLERY[4], 'Stabilitas Tak Tertandingi', 'Sistem penyangga adaptif kami menjamin kestabilan optimal, melindungi lutut dari cedera, dan mengembalikan kepercayaan diri Anda bergerak bebas.'],
-  [GALLERY[7], 'Nyaman Sepanjang Hari', 'Dibuat dari material premium yang bernapas dan anti-slip, memberikan kenyamanan maksimal tanpa terlihat, ideal untuk aktivitas harian Anda.'],
-  [GALLERY[5], 'Inovasi Medis Teruji', 'Dikembangkan oleh ahli medis dengan material kelas atas, menjamin daya tahan superior dan perlindungan optimal untuk kesehatan lutut jangka panjang.']
+  [GALLERY[6], 'Stabil dengan Quad-Strap', 'Sistem tali Quad-Strap menjaga pad tetap di posisinya saat Anda bergerak.'],
+  [GALLERY[4], 'Penyangga adaptif', 'Menjaga lutut tetap stabil sehingga Anda lebih percaya diri bergerak bebas.'],
+  [GALLERY[7], 'Nyaman seharian', 'Material bernapas dan anti-slip, nyaman untuk aktivitas harian.'],
+  [GALLERY[5], 'Melindungi dari benturan', 'Lindungi lutut dari benturan dan gesekan saat beraktivitas.']
 ];
-/* Isi dengan ulasan pembeli ASLI. Format tiap ulasan:
-   { name:'Nama', stars:5, date:'dd/mm/yyyy', text:'1-2 kalimat singkat', img:'(opsional) link foto' } */
+/* Isi dengan ulasan pembeli ASLI: { name:'Nama', stars:5, date:'dd/mm/yyyy', text:'1-2 kalimat', img:'(opsional) link foto' } */
 const REVIEWS = [];
 
 /* ===== RENDER ===== */
 document.addEventListener('error', e => { if (e.target.tagName === 'IMG') e.target.classList.add('bad'); }, true);
 const $ = s => document.querySelector(s);
 const rp = n => 'Rp ' + n.toLocaleString('id-ID');
-$('#galw').innerHTML = GALLERY.map(s => `<div class="swiper-slide"><img referrerpolicy="no-referrer" src="${s}" alt="Kneepad FixedForm"></div>`).join('');
-const swiper = new Swiper('#gal', { pagination: { el: '.swiper-pagination', clickable: true }, autoplay: { delay: 5000, disableOnInteraction: true } });
-$('#meta').innerHTML = `<i>&#9733;</i> ${CFG.rating} <span>|</span> ${CFG.penilaian} Penilaian <span>|</span> ${CFG.terjual} Terjual`;
-$('#feats').innerHTML = FEATURES.map(f => `<div class="feat"><img referrerpolicy="no-referrer" src="${f[0]}" alt="${f[1]}" loading="lazy"><b>${f[1]}</b><p>${f[2]}</p></div>`).join('');
 const single = VARIANTS[0].price;
-$('#vgrid').innerHTML = VARIANTS.map((v, i) => {
-  const hemat = v.pcs > 1 ? single * v.pcs - v.price : 0;
-  return `<button class="vc" data-i="${i}"><img referrerpolicy="no-referrer" src="${v.img}" alt="${v.name}"><span class="tick">&#10003;</span><div class="vn">${v.name}</div><div class="vp">${rp(v.price)}</div><div class="vs">${v.pcs} pcs${hemat > 0 ? ' &middot; hemat ' + rp(hemat) : ''}</div></button>`;
-}).join('');
+const hematOf = v => v.pcs > 1 ? single * v.pcs - v.price : 0;
+$('#ann').textContent = CFG.announce;
+if (!CFG.announce) $('#ann').style.display = 'none';
+$('#galw').innerHTML = GALLERY.map(s => `<div class="swiper-slide"><img referrerpolicy="no-referrer" src="${s}" alt="Kneepad FixedForm"></div>`).join('');
+$('#th').innerHTML = GALLERY.map((s, i) => `<button data-i="${i}" aria-label="Foto ${i + 1}"><img referrerpolicy="no-referrer" src="${s.replace('width=823', 'width=160')}" alt=""></button>`).join('');
+const swiper = new Swiper('#gal', { autoplay: { delay: 5000, disableOnInteraction: true } });
+function mark() { const i = swiper.activeIndex; $('#cnt').textContent = (i + 1) + ' / ' + GALLERY.length; document.querySelectorAll('#th button').forEach((b, k) => b.classList.toggle('on', k === i)); }
+swiper.on('slideChange', mark); mark();
+$('#th').addEventListener('click', e => { const b = e.target.closest('button'); if (b) swiper.slideTo(+b.dataset.i); });
+if (CFG.showStats) $('#meta').innerHTML = `<i>&#9733;</i> ${CFG.rating} <span>(${CFG.penilaian} penilaian)</span> <span>&middot;</span> <span>${CFG.terjual} terjual</span>`;
+$('#feats').innerHTML = FEATURES.map(f => `<div class="feat"><img referrerpolicy="no-referrer" src="${f[0]}" alt="${f[1]}" loading="lazy"><b>${f[1]}</b><p>${f[2]}</p></div>`).join('');
+$('#vlist').innerHTML = VARIANTS.map((v, i) => `<button class="vc" data-i="${i}"><img referrerpolicy="no-referrer" src="${v.img}" alt=""><div class="t"><div class="vn">${v.name}${hematOf(v) ? `<span class="save">Hemat ${rp(hematOf(v))}</span>` : ''}</div><div class="vs">${v.pcs} pcs</div></div><div class="vp">${rp(v.price)}</div></button>`).join('');
 if (REVIEWS.length) {
   $('#rvsec').style.display = 'block';
-  $('#rvlist').innerHTML = REVIEWS.map(r => `<div class="rv"><span class="st">${'&#9733;'.repeat(r.stars || 5)}</span><b style="font-size:13px"> ${r.name}</b><small>${r.date || ''}</small><p>${r.text}</p>${r.img ? `<img referrerpolicy="no-referrer" src="${r.img}" alt="">` : ''}</div>`).join('');
+  $('#rvlist').innerHTML = REVIEWS.map(r => `<div class="rv"><span class="s">${'&#9733;'.repeat(r.stars || 5)}</span><b>${r.name}</b><small>${r.date || ''}</small><p>${r.text}</p>${r.img ? `<img referrerpolicy="no-referrer" src="${r.img}" alt="">` : ''}</div>`).join('');
 }
 
 /* ===== PILIH PAKET + SAMBUNG KE FORM ORDERONLINE ===== */
@@ -215,54 +221,46 @@ function syncForm() {
     if (!inp || !btn) return;
     const diff = (r === hit ? 1 : 0) - (parseInt(inp.value) || 0);
     const need = r === hit ? Math.max(diff, 0) : Math.max(-diff, 0);
-    for (let k = 0; k < need; k++) btn.click();   /* selalu klik tombol asli, supaya total & Pixel ikut jalan */
+    for (let k = 0; k < need; k++) btn.click();   /* selalu klik tombol asli supaya total & Pixel ikut jalan */
   });
   return true;
 }
-function trySync() { pending = !syncForm(); }
+const trySync = () => { pending = !syncForm(); };
 function select(i, byUser) {
-  cur = i; const v = VARIANTS[i];
+  cur = i; const v = VARIANTS[i], h = hematOf(v);
   document.querySelectorAll('.vc').forEach((c, k) => c.classList.toggle('on', k === i));
   $('#vname').textContent = v.name;
   $('#price').textContent = rp(v.price);
-  const hemat = v.pcs > 1 ? single * v.pcs - v.price : 0;
-  $('#save').style.display = hemat > 0 ? 'inline-block' : 'none';
-  $('#save').textContent = 'Hemat ' + rp(hemat);
-  $('#barname').textContent = v.name;
-  $('#barprice').textContent = rp(v.price);
+  $('#save').style.display = h ? 'inline-block' : 'none'; $('#save').textContent = 'Hemat ' + rp(h);
+  $('#barname').textContent = v.name; $('#barprice').textContent = rp(v.price);
   $('#sum').innerHTML = `<div class="sum"><img referrerpolicy="no-referrer" src="${v.img}" alt=""><div><b>Kneepad FixedForm</b><small>${v.name} &middot; ${rp(v.price)}</small></div></div>`;
   if (byUser) {
-    const g = document.querySelector('#galw .swiper-slide img'); g.classList.remove('bad'); g.src = v.img;
+    const g = document.querySelector('#galw .swiper-slide img'); g.classList.remove('bad'); g.src = v.big;
     swiper.slideTo(0);
     trySync();               /* hanya saat pembeli mengetuk, bukan saat halaman dibuka */
   }
 }
-$('#vgrid').addEventListener('click', e => { const b = e.target.closest('.vc'); if (b) select(+b.dataset.i, true); });
+$('#vlist').addEventListener('click', e => { const b = e.target.closest('.vc'); if (b) select(+b.dataset.i, true); });
 new MutationObserver(() => { if (pending) trySync(); }).observe($('.ooef'), { childList: true, subtree: true });
 select(0, false);
 
-/* ===== TOMBOL TETAP, TANGGAL KIRIM, TIMER ===== */
-const toOrder = () => $('#order').scrollIntoView({ behavior: 'smooth' });
-$('#barbtn').onclick = () => { trySync(); toOrder(); };
-$('#ship').onclick = toOrder;
-if (CFG.stickyBar) {
-  new IntersectionObserver(([e]) => $('#bar').classList.toggle('show', !e.isIntersecting)).observe($('#order'));
-}
+/* ===== TOMBOL, TANGGAL KIRIM, BAR TETAP, TIMER ===== */
+const toOrder = () => { trySync(); $('#order').scrollIntoView({ behavior: 'smooth' }); };
+$('#cta').onclick = toOrder; $('#barbtn').onclick = toOrder;
+$('#ship').onclick = () => $('#order').scrollIntoView({ behavior: 'smooth' });
+const seen = {};
+const upd = () => $('#bar').classList.toggle('show', CFG.stickyBar && !seen.cta && !seen.order);
+[['#cta', 'cta'], ['#order', 'order']].forEach(([s, k]) => new IntersectionObserver(([e]) => { seen[k] = e.isIntersecting; upd(); }).observe($(s)));
 (function () {
   const m = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nov','Des'];
   const a = new Date(), b = new Date(); a.setDate(a.getDate() + 3); b.setDate(b.getDate() + 6);
-  $('#shipdate').textContent = 'Garansi Tiba: ' + (a.getMonth() === b.getMonth()
+  $('#shipdate').textContent = 'Garansi tiba: ' + (a.getMonth() === b.getMonth()
     ? a.getDate() + ' - ' + b.getDate() + ' ' + m[a.getMonth()]
     : a.getDate() + ' ' + m[a.getMonth()] + ' - ' + b.getDate() + ' ' + m[b.getMonth()]);
 })();
-if (!CFG.flashSale) $('#flash').style.display = 'none';
-else {
-  let t = 3600 * CFG.hours;
-  const p = n => String(n).padStart(2, '0');
-  setInterval(() => {
-    $('#timer').textContent = p(Math.floor(t / 3600)) + ' : ' + p(Math.floor(t % 3600 / 60)) + ' : ' + p(t % 60);
-    if (--t < 0) t = 3600 * CFG.hours;
-  }, 1000);
+if (CFG.timer) {   /* opsional: hitung mundur di bar atas. Pakai hanya kalau promonya memang berbatas waktu */
+  let t = 3600 * CFG.hours; const p = n => String(n).padStart(2, '0');
+  setInterval(() => { $('#ann').textContent = CFG.announce + ' | berakhir ' + p(Math.floor(t / 3600)) + ':' + p(Math.floor(t % 3600 / 60)) + ':' + p(t % 60); if (--t < 0) t = 3600 * CFG.hours; }, 1000);
 }
 </script>
 </body>
