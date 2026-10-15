@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kneepad FixedForm</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+:root{--primary:#1D4ED8;--soft:#eff4ff;--ink:#1f2937;--mute:#6b7280;--line:#e5e7eb;--r:14px}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#f3f4f6;color:var(--ink);line-height:1.5}
+.wrap{max-width:500px;margin:0 auto;background:#fff;min-height:100vh;padding-bottom:84px}
+.sw{aspect-ratio:1;background:#fafafa}.sw img{width:100%;height:100%;object-fit:contain}
+.swiper-pagination-bullet-active{background:var(--primary)}
+.flash{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;color:#fff;background:linear-gradient(90deg,var(--primary),color-mix(in srgb,var(--primary) 65%,#000))}
+.flash b{font-size:16px;font-style:italic;font-weight:800}.flash small{display:block;font-size:10px;font-weight:600;opacity:.9}
+.timer{background:rgba(0,0,0,.3);border-radius:6px;padding:4px 9px;font:700 13px ui-monospace,monospace;letter-spacing:.05em}
+.sec{padding:16px;border-bottom:8px solid #f3f4f6}
+.h{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price strong{font-size:28px;font-weight:800;color:var(--primary);line-height:1.1}
+.chip{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#dcfce7;color:#166534}
+h1{font-size:17px;font-weight:700;margin:8px 0 6px;line-height:1.35}
+.meta{font-size:12px;color:var(--mute);display:flex;gap:8px;flex-wrap:wrap}.meta i{color:#f59e0b;font-style:normal}
+.shop{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:50%;background:var(--soft);color:var(--primary);font-weight:800;display:grid;place-items:center}
+.shop b{font-size:14px}.shop small{display:block;font-size:11px;color:var(--mute)}.shop small:before{content:"\25CF ";color:#22c55e;font-size:8px}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vc{border:1.5px solid var(--line);border-radius:var(--r);padding:8px;position:relative;background:#fff;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.vc img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}
+.vc.on{border-color:var(--primary);background:var(--soft)}
+.tick{display:none;position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;background:var(--primary);color:#fff;font-size:12px;place-items:center}
+.vc.on .tick{display:grid}
+.vn{font-size:13px;font-weight:700;margin-top:8px}.vp{font-size:15px;font-weight:800;color:var(--primary)}.vs{font-size:11px;color:var(--mute)}
+.trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.trust span{font-size:11px;font-weight:600;background:#f3f4f6;border-radius:8px;padding:5px 9px}
+.ship{display:flex;align-items:center;gap:12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r);padding:12px 14px;cursor:pointer;margin:0 16px 16px}
+.ship b{font-size:13px;color:#166534;display:block}.ship small{font-size:11px;color:#4b7c5c}
+.ship i{font-style:normal;font-size:20px}
+.feat{margin-bottom:22px}.feat img{width:100%;display:block;border-radius:var(--r)}
+.feat b{display:block;font-size:15px;margin:10px 0 4px}.feat p{font-size:13px;color:#4b5563}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:14px 0;font-size:13px;font-weight:800;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;transition:transform .2s}
+details[open] summary:after{transform:rotate(-135deg);margin-top:4px}
+details p{padding:0 0 14px;font-size:13px;color:#4b5563;white-space:pre-line}
+.rv{padding:12px 0;border-bottom:1px solid var(--line)}.rv:last-child{border:0}
+.rv .st{color:#f59e0b;font-size:12px}.rv small{color:var(--mute);font-size:11px;margin-left:6px}
+.rv p{font-size:13px;margin-top:4px;color:#374151}.rv img{width:72px;height:72px;object-fit:cover;border-radius:8px;margin-top:8px}
+#order{padding:22px 16px;background:#fff}
+.ot{text-align:center;font-size:15px;font-weight:800;color:var(--primary);text-transform:uppercase;margin-bottom:14px}
+.sum{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:var(--r);background:#fafafa;margin-bottom:12px}
+.sum img{width:46px;height:46px;border-radius:8px;object-fit:cover}.sum b{font-size:13px;display:block}.sum small{font-size:11px;color:var(--mute)}
+.bar{position:fixed;left:50%;bottom:0;width:100%;max-width:500px;transform:translate(-50%,110%);transition:transform .25s;background:#fff;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:50}
+.bar.show{transform:translate(-50%,0)}
+.bar small{font-size:11px;color:var(--mute);display:block}.bar b{font-size:16px}
+.bar button{background:var(--primary);color:#fff;border:0;border-radius:var(--r);padding:13px 24px;font:800 14px inherit;font-family:inherit;cursor:pointer}
+
+.bad{color:transparent;font-size:0;background:#f3f4f6}.feat img.bad{display:none}
+/* ===== Gaya form OrderOnline (hanya tampilan; ikut warna --primary) ===== */
+.ooef{--a:var(--primary);--as:var(--soft)}
+.ooef form.orderonline-embed-form{max-width:480px;margin:0 auto;font-family:inherit;position:relative}
+.ooef form .section-title{margin:18px 0 10px;font-size:15px;font-weight:700}
+.ooef form .ooef-variations-table-wrapper:before{content:"Pilihan produk";display:block;margin-bottom:10px;font-size:15px;font-weight:700}
+.ooef form .ooef-variations-table-warning{margin-bottom:10px;font-size:13px;color:#b91c1c}
+.ooef form .ooef-variations-table,.ooef form .ooef-variations-table tbody{display:block;width:100%;border:0}
+.ooef form .ooef-variations-table thead{display:none}
+.ooef form .ooef-variations-table tr{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.ooef form .ooef-variations-table td{display:block;width:auto;padding:0;border:0}
+.ooef form .oo-variation-label{font-size:15px;font-weight:600}
+.ooef form .input-number-controls{display:flex;align-items:center;flex-wrap:nowrap;gap:6px}
+.ooef form .input-number-controls .input-group-prepend,.ooef form .input-number-controls .input-group-append{display:flex;margin:0}
+.ooef form .input-number-controls .btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);font-size:18px;line-height:1}
+.ooef form .input-number-controls .qty-plus{border-color:var(--a);background:var(--a);color:#fff}
+.ooef form .input-number-controls input.form-control{width:44px;height:36px;padding:0;border:0;background:transparent;box-shadow:none;text-align:center;font-size:16px;font-weight:700;-moz-appearance:textfield}
+.ooef form .input-number-controls input::-webkit-outer-spin-button,.ooef form .input-number-controls input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ooef form .form-group{margin-bottom:10px}
+.ooef form .ooef-field{width:100%;height:46px;padding:0 14px;border:1px solid var(--line)!important;border-radius:var(--r)!important;background:#fff!important;box-shadow:none;font-size:15px}
+.ooef form textarea.ooef-field{height:auto;min-height:96px;padding:12px 14px}
+.ooef form .ooef-field:focus{border-color:var(--a)!important;outline:0;box-shadow:0 0 0 3px var(--as)}
+.ooef form .form-group-custom_1662563449893{display:none}
+.ooef form .select2-container{width:100%!important}
+.ooef form .select2-container--default .select2-selection--single{display:flex;align-items:center;height:46px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.ooef form .select2-container--default .select2-selection--single .select2-selection__rendered{padding-left:14px;line-height:44px;color:var(--ink)}
+.ooef form .select2-container--default .select2-selection--single .select2-selection__arrow{top:0;right:10px;height:44px}
+.ooef form .ooef-payment-options{display:flex;flex-direction:column;gap:8px}
+.ooef form .ooef-payment-option{display:block;margin:0;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);background:#fff;cursor:pointer}
+.ooef form .ooef-payment-option:has(input:checked){border-color:var(--a);background:var(--as)}
+.ooef form .ooef-payment-option img{width:auto;height:24px;margin-right:8px;vertical-align:middle}
+.ooef form .ooef-payment-method{accent-color:var(--a)}
+.ooef form .order-summary{margin:20px 0 14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:#f9fafb}
+.ooef form .order-summary-header{margin-bottom:8px;font-size:13px;font-weight:700;color:var(--mute);text-decoration:none}
+.ooef form .order-summary-item{justify-content:space-between;padding:4px 0;font-size:14px}
+.ooef form .order-summary-item-total{margin-top:6px;padding-top:10px;border-top:1px dashed var(--line);font-size:16px;font-weight:700;color:var(--a)}
+.ooef form .checkout-actions .btn-complete-order{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;border:0;border-radius:var(--r);background:var(--a)!important;color:#fff!important;font-size:16px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.ooef form .checkout-actions .btn-complete-order svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="swiper sw" id="gal"><div class="swiper-wrapper" id="galw"></div><div class="swiper-pagination"></div></div>
+
+  <div class="flash" id="flash">
+    <div><b>FLASH SALE!</b><small>PROMO SPESIAL HARI INI</small></div>
+    <div style="text-align:right"><small>BERAKHIR DALAM</small><div class="timer" id="timer">00 : 00 : 00</div></div>
+  </div>
+
+  <div class="sec">
+    <div class="price"><strong id="price">Rp 0</strong><span class="chip" id="save" style="display:none"></span></div>
+    <h1>Kneepad FixedForm</h1>
+    <div class="meta" id="meta"></div>
+  </div>
+
+  <div class="sec"><div class="shop"><div class="logo">F</div><div><b>FIXEDFORM</b><small>Aktif</small></div></div></div>
+
+  <div class="sec">
+    <div class="h">Pilih paket: <span id="vname" style="color:var(--primary)"></span></div>
+    <div class="vgrid" id="vgrid"></div>
+    <div class="trust"><span>Garansi 100% Original</span><span>Stok tersedia</span><span>Anti-geser</span></div>
+  </div>
+
+  <div class="ship" id="ship"><i>&#128666;</i><div><b id="shipdate">Garansi Tiba: ...</b><small>Dapatkan Voucher s/d Rp10.000 jika pesanan terlambat.</small></div></div>
+
+  <div class="sec" style="padding-top:4px">
+    <div class="h" style="margin-top:12px">Fitur unggulan</div>
+    <div id="feats"></div>
+  </div>
+
+  <div class="sec" style="padding-top:2px">
+    <details open><summary>Deskripsi produk</summary><p>&bull; Lindungi lutut optimal dari benturan dan gesekan berat.
+&bull; Desain anti-geser, tetap stabil di posisi terbaiknya.
+&bull; Bebas bergerak, fokus penuh tanpa khawatir pad bergeser.</p></details>
+    <details><summary>Panduan ukuran</summary><p>Panjang 50 cm, tinggi 21 cm</p></details>
+    <details><summary>Spesifikasi teknis</summary><p>Bahan: Premium Quality
+Stok: Tersedia
+Garansi: 100% Original</p></details>
+  </div>
+
+  <!-- ULASAN: tampil otomatis kalau array REVIEWS di bawah diisi (ulasan pembeli ASLI). -->
+  <div class="sec" id="rvsec" style="display:none"><div class="h">Penilaian produk</div><div id="rvlist"></div></div>
+
+  <div id="order">
+    <div id="sum"></div>
+    <div class="ot">Formulir Pemesanan</div>
+    <!-- OrderOnline Embed Code - v8.0.2 --> <div class="ooef"> <form class="orderonline-embed-form" data-username="mila" data-product-slug="kneepad-fixedform" data-product-id="6ad090d9fb37c83cc90e8ddc" id="oo-embed-form-kneepad-fixedform-8211" data-origin="orderonline"> <div class="ooef-loader"><style>.ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}@keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}@-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}.ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}.ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}.ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}@-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}@keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}</style><div aria-live="polite" role="status"><div>Loading...</div></div></div> </form> </div> <script> if (typeof xLogError != 'function') { var xLogError = function (error) { var req = new XMLHttpRequest(); var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack }); var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error'; req.open('POST', 'https://api.orderonline.id/log', true); req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); req.send(params); }; } try { if (typeof xEmbedScript != 'function') { var xEmbedScript = function () { !function(w, d, e, v, id, t, s) { if (d.getElementById(id)) return; t = d.createElement(e);t.async = !0;t.src = v;t.id = id; s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.2', 'oo-embed-js'); }; } if (typeof xEmbedInit != 'function') { var xEmbedInit = function (w, n) { if (w.ooe) return; n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!w._ooe) w._ooe = n; n.push = n;n.loaded = !0;n.version = '8.0.2';n.queue = []; }; } xEmbedInit(window); ooe('setup', 'redirect', 'https://mila.orderonline.id'); ooe('init', '5f1a7b8fa9bf807da24d83bb', '6ad090d9fb37c83cc90e8ddc', '6ad090d9fb37c83cc90e8ddd', 'oo-embed-form-kneepad-fixedform-8211', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":true}); if (!window.jQuery) { !function(w, d, e, v, id, t, s) { if (d.getElementById(id)) return; t = d.createElement(e);t.async = !0;t.src = v;t.id = id; t.addEventListener('load', xEmbedScript); s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery'); } else { xEmbedScript(); } } catch (e) { xLogError(e); throw e; } </script> <!-- End OrderOnline Embed Code -->
+  </div>
+</div>
+
+<div class="bar" id="bar"><div><small id="barname"></small><b id="barprice"></b></div><button id="barbtn">Pesan sekarang</button></div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+/* ===== PENGATURAN & DATA ===== */
+const CFG = { flashSale: true, hours: 1, stickyBar: true, rating: '4.9', penilaian: '1.2RB', terjual: '2.5RB+' };
+const U = 'https://tryfixedform.com/cdn/shop/files/';
+const GALLERY = [
+  U+'nh_ChatGPT_03_44_13_28_thg_9_2026.png?v=1790592457&width=823',
+  U+'f448080c-5ef6-43f6-907c-2cdef9763f7e.jpg?v=1790445832&width=823',
+  U+'eaebdaa3-14cb-487c-877c-088ba126e807.jpg?v=1790445759&width=823',
+  U+'t_ixu_ng_4.jpg?v=1790445775&width=823',
+  U+'a3a4fd68-c4b5-4a55-8570-224e13eb0757_1.jpg?v=1790445717&width=823',
+  U+'107c8689-f676-422d-9d88-004c41e745b0_1.jpg?v=1790445708&width=823',
+  U+'aee98618-2821-4535-b587-b60f2530c8d6.jpg?v=1790445727&width=823',
+  U+'aa0212a4-8aa2-40ac-9b80-ab015be5e136_1.jpg?v=1790445722&width=823'
+];
+const BUNDLE_IMG = 'https://cdn.shopify.com/s/files/1/0659/2112/2511/files/Kaching-Bundles-Kaching-Bundles-Kaching-Bundles-ChatGPT_Image_Oct_21_2025_05_25_20_PM_300x300_59247e15-7fbb-458d-8c6e-8b8759a5dd5e_300x300.webp?v=1790318730';
+/* name harus sama dengan nama pilihan di OrderOnline (huruf besar/kecil & tanda baca diabaikan) */
+const VARIANTS = [
+  { name: 'Single', price: 186000, pcs: 1, img: GALLERY[0] },
+  { name: 'Buy 1 get 1 free!', price: 220000, pcs: 2, img: BUNDLE_IMG }
+];
+const FEATURES = [
+  [GALLERY[6], 'Dukungan Spesifik Menyeluruh', 'Dirancang presisi dengan sistem tali Quad-Strap, memberikan stabilitas instan, meredakan nyeri, dan mendorong pemulihan alami lutut Anda.'],
+  [GALLERY[4], 'Stabilitas Tak Tertandingi', 'Sistem penyangga adaptif kami menjamin kestabilan optimal, melindungi lutut dari cedera, dan mengembalikan kepercayaan diri Anda bergerak bebas.'],
+  [GALLERY[7], 'Nyaman Sepanjang Hari', 'Dibuat dari material premium yang bernapas dan anti-slip, memberikan kenyamanan maksimal tanpa terlihat, ideal untuk aktivitas harian Anda.'],
+  [GALLERY[5], 'Inovasi Medis Teruji', 'Dikembangkan oleh ahli medis dengan material kelas atas, menjamin daya tahan superior dan perlindungan optimal untuk kesehatan lutut jangka panjang.']
+];
+/* Isi dengan ulasan pembeli ASLI. Format tiap ulasan:
+   { name:'Nama', stars:5, date:'dd/mm/yyyy', text:'1-2 kalimat singkat', img:'(opsional) link foto' } */
+const REVIEWS = [];
+
+/* ===== RENDER ===== */
+document.addEventListener('error', e => { if (e.target.tagName === 'IMG') e.target.classList.add('bad'); }, true);
+const $ = s => document.querySelector(s);
+const rp = n => 'Rp ' + n.toLocaleString('id-ID');
+$('#galw').innerHTML = GALLERY.map(s => `<div class="swiper-slide"><img referrerpolicy="no-referrer" src="${s}" alt="Kneepad FixedForm"></div>`).join('');
+const swiper = new Swiper('#gal', { pagination: { el: '.swiper-pagination', clickable: true }, autoplay: { delay: 5000, disableOnInteraction: true } });
+$('#meta').innerHTML = `<i>&#9733;</i> ${CFG.rating} <span>|</span> ${CFG.penilaian} Penilaian <span>|</span> ${CFG.terjual} Terjual`;
+$('#feats').innerHTML = FEATURES.map(f => `<div class="feat"><img referrerpolicy="no-referrer" src="${f[0]}" alt="${f[1]}" loading="lazy"><b>${f[1]}</b><p>${f[2]}</p></div>`).join('');
+const single = VARIANTS[0].price;
+$('#vgrid').innerHTML = VARIANTS.map((v, i) => {
+  const hemat = v.pcs > 1 ? single * v.pcs - v.price : 0;
+  return `<button class="vc" data-i="${i}"><img referrerpolicy="no-referrer" src="${v.img}" alt="${v.name}"><span class="tick">&#10003;</span><div class="vn">${v.name}</div><div class="vp">${rp(v.price)}</div><div class="vs">${v.pcs} pcs${hemat > 0 ? ' &middot; hemat ' + rp(hemat) : ''}</div></button>`;
+}).join('');
+if (REVIEWS.length) {
+  $('#rvsec').style.display = 'block';
+  $('#rvlist').innerHTML = REVIEWS.map(r => `<div class="rv"><span class="st">${'&#9733;'.repeat(r.stars || 5)}</span><b style="font-size:13px"> ${r.name}</b><small>${r.date || ''}</small><p>${r.text}</p>${r.img ? `<img referrerpolicy="no-referrer" src="${r.img}" alt="">` : ''}</div>`).join('');
+}
+
+/* ===== PILIH PAKET + SAMBUNG KE FORM ORDERONLINE ===== */
+let cur = 0, pending = false;
+const norm = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+function syncForm() {
+  const rows = [...document.querySelectorAll('.ooef-variations-table tbody tr')];
+  if (!rows.length) return false;
+  const want = norm(VARIANTS[cur].name);
+  const hit = rows.find(r => norm((r.querySelector('.oo-variation-label') || {}).textContent) === want);
+  if (!hit) return false;
+  rows.forEach(r => {
+    const inp = r.querySelector('input.oo-combination');
+    const btn = r.querySelector(r === hit ? '.oo-variation-qty-plus' : '.oo-variation-qty-minus');
+    if (!inp || !btn) return;
+    const diff = (r === hit ? 1 : 0) - (parseInt(inp.value) || 0);
+    const need = r === hit ? Math.max(diff, 0) : Math.max(-diff, 0);
+    for (let k = 0; k < need; k++) btn.click();   /* selalu klik tombol asli, supaya total & Pixel ikut jalan */
+  });
+  return true;
+}
+function trySync() { pending = !syncForm(); }
+function select(i, byUser) {
+  cur = i; const v = VARIANTS[i];
+  document.querySelectorAll('.vc').forEach((c, k) => c.classList.toggle('on', k === i));
+  $('#vname').textContent = v.name;
+  $('#price').textContent = rp(v.price);
+  const hemat = v.pcs > 1 ? single * v.pcs - v.price : 0;
+  $('#save').style.display = hemat > 0 ? 'inline-block' : 'none';
+  $('#save').textContent = 'Hemat ' + rp(hemat);
+  $('#barname').textContent = v.name;
+  $('#barprice').textContent = rp(v.price);
+  $('#sum').innerHTML = `<div class="sum"><img referrerpolicy="no-referrer" src="${v.img}" alt=""><div><b>Kneepad FixedForm</b><small>${v.name} &middot; ${rp(v.price)}</small></div></div>`;
+  if (byUser) {
+    const g = document.querySelector('#galw .swiper-slide img'); g.classList.remove('bad'); g.src = v.img;
+    swiper.slideTo(0);
+    trySync();               /* hanya saat pembeli mengetuk, bukan saat halaman dibuka */
+  }
+}
+$('#vgrid').addEventListener('click', e => { const b = e.target.closest('.vc'); if (b) select(+b.dataset.i, true); });
+new MutationObserver(() => { if (pending) trySync(); }).observe($('.ooef'), { childList: true, subtree: true });
+select(0, false);
+
+/* ===== TOMBOL TETAP, TANGGAL KIRIM, TIMER ===== */
+const toOrder = () => $('#order').scrollIntoView({ behavior: 'smooth' });
+$('#barbtn').onclick = () => { trySync(); toOrder(); };
+$('#ship').onclick = toOrder;
+if (CFG.stickyBar) {
+  new IntersectionObserver(([e]) => $('#bar').classList.toggle('show', !e.isIntersecting)).observe($('#order'));
+}
+(function () {
+  const m = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nov','Des'];
+  const a = new Date(), b = new Date(); a.setDate(a.getDate() + 3); b.setDate(b.getDate() + 6);
+  $('#shipdate').textContent = 'Garansi Tiba: ' + (a.getMonth() === b.getMonth()
+    ? a.getDate() + ' - ' + b.getDate() + ' ' + m[a.getMonth()]
+    : a.getDate() + ' ' + m[a.getMonth()] + ' - ' + b.getDate() + ' ' + m[b.getMonth()]);
+})();
+if (!CFG.flashSale) $('#flash').style.display = 'none';
+else {
+  let t = 3600 * CFG.hours;
+  const p = n => String(n).padStart(2, '0');
+  setInterval(() => {
+    $('#timer').textContent = p(Math.floor(t / 3600)) + ' : ' + p(Math.floor(t % 3600 / 60)) + ' : ' + p(t % 60);
+    if (--t < 0) t = 3600 * CFG.hours;
+  }, 1000);
+}
+</script>
+</body>
+</html>
